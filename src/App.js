@@ -9,6 +9,16 @@ function App() {
       <Search />
       <Weather />
       <Forecast />
+      <span class="footer">
+        <a
+          href="https://github.com/ana777stasia/react-weather-app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open-source code
+        </a>
+        by Anastasiia Vahina
+      </span>
     </div>
   );
 }

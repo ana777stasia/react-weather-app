@@ -8,4 +8,8 @@
   font-family: "Roboto", sans-serif;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-
+.footer {
+  display: block;
+  text-align: center;
+  font-size: smaller;
+}

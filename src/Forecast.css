@@ -1,0 +1,15 @@
+.weekly-weather {
+  margin: 10px;
+}
+.weekly-weather-data {
+  border: 1px solid rgb(124, 123, 123);
+  border-radius: 27px;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  margin: 0 auto;
+  box-shadow: 0 1px 8px rgba(86, 84, 84, 0.3);
+}
+.weekly-weather-icon {
+  width: 36px;
+}

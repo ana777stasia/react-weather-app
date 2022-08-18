@@ -1,11 +1,9 @@
 import React from "react";
 import Time from "./Time";
 import "./WeatherInfo.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
-  let weatherInfo = {
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-  };
   return (
     <div className="WeatherInfo">
       <div className="row weather-data">
@@ -20,14 +18,9 @@ export default function WeatherInfo(props) {
         </div>
         <div className="col-4 current-weather-data">
           <Time date={props.data.date} />
-          <div className="col-12 current-weather-data"></div>
         </div>
         <div className="col-4">
-          <img
-            src={weatherInfo.imgUrl}
-            alt="sun"
-            className="weather-icon main"
-          />
+          <WeatherIcon code={props.data.icon} />
         </div>
         <div className="col-4 current-weather-data">
           Humidity: {props.data.humidity}%

@@ -1,0 +1,26 @@
+.city-name,
+.current-temperature {
+  font-family: "Cormorant SC", serif;
+  font-size: 36px;
+  font-weight: bold;
+}
+.celsius {
+  text-decoration: none;
+  color: #212529;
+}
+.sky-data {
+  position: relative;
+  top: 28px;
+  text-transform: capitalize;
+}
+.weather-data {
+  text-align: center;
+  padding: 15px;
+}
+.current-weather-data {
+  font-family: "Pangolin", cursive;
+}
+.weather-icon,
+.main {
+  width: 75px;
+}

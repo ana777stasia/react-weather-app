@@ -1,14 +1,15 @@
 import "./App.css";
-import Search from "./Search";
+import "bootstrap/dist/css/bootstrap.css";
 import Weather from "./Weather";
 import Forecast from "./Forecast";
 
 function App() {
   return (
     <div className="App">
-      <Search />
-      <Weather />
-      <Forecast />
+      <div className="container">
+        <Weather />
+        <Forecast />
+      </div>
       <span class="footer">
         <a
           href="https://github.com/ana777stasia/react-weather-app"
@@ -16,7 +17,7 @@ function App() {
           rel="noreferrer"
         >
           Open-source code
-        </a>
+        </a>{" "}
         by Anastasiia Vahina
       </span>
     </div>

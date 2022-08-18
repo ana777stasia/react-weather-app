@@ -20,6 +20,7 @@ export default function WeatherInfo(props) {
         </div>
         <div className="col-4 current-weather-data">
           <Time date={props.data.date} />
+          <div className="col-12 current-weather-data"></div>
         </div>
         <div className="col-4">
           <img

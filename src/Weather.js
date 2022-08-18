@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Time from "./Time";
 import "./Weather.css";
 
 export default function Weather(props) {
   let weatherInfo = {
-    currentHour: 12,
-    currentMinute: 53,
     imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
   };
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -17,6 +16,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
+      date: new Date(response.data.dt * 1000),
     });
   }
   function search() {
@@ -54,8 +54,7 @@ export default function Weather(props) {
             {weatherData.description}
           </div>
           <div className="col-4 current-weather-data">
-            {weatherInfo.currentHour}:{weatherInfo.currentMinute}
-            <div className="col-12 current-weather-data">12 August 2022</div>
+            <Time date={weatherData.date} />
           </div>
           <div className="col-4">
             <img

@@ -2,6 +2,7 @@ import React from "react";
 import Time from "./Time";
 import "./WeatherInfo.css";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -9,10 +10,7 @@ export default function WeatherInfo(props) {
       <div className="row weather-data">
         <div className="col-12 current-weather-data">Current weather</div>
         <div className="col-4 city-name">{props.data.city}</div>
-        <div className="col-4 current-temperature">
-          {Math.round(props.data.temperature)}
-          <span className="celsius">°C</span>
-        </div>
+        <WeatherTemperature celsius={props.data.temperature} />
         <div className="col-4 sky-data current-weather-data">
           {props.data.description}
         </div>

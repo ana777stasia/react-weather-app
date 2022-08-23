@@ -1,62 +1,25 @@
+import axios from "axios";
 import React from "react";
 import "./Forecast.css";
+import WeatherIcon from "./WeatherIcon";
 
-export default function Forecast() {
+export default function Forecast(props) {
+  function handleResponse(response) {
+    console.log(response.data);
+  }
+
+  let apiKey = "f26f7a1bde9f9ef7818f1bda2d4d548a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&units=metric&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(handleResponse);
+
   return (
     <div className="row weekly-weather">
       <div className="col-2 weekly-weather-data">
         Wednseday
         <div className="col">23°|18°</div>
         <div className="col">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png"
-            alt="cloudy"
-            className="weekly-weather-icon"
-          />
-        </div>
-      </div>
-      <div className="col-2 weekly-weather-data">
-        Thursday
-        <div className="col">27°|23°</div>
-        <div className="col">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-            alt="thunderstorm"
-            className="weekly-weather-icon"
-          />
-        </div>
-      </div>
-      <div className="col-2 weekly-weather-data">
-        Friday
-        <div className="col">30°|24°</div>
-        <div className="col">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/48/sunny.png"
-            alt="sun"
-            className="weekly-weather-icon"
-          />
-        </div>
-      </div>
-      <div className="col-2 weekly-weather-data">
-        Saturday
-        <div className="col">35°|26°</div>
-        <div className="col">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-            alt="hot"
-            className="weekly-weather-icon"
-          />
-        </div>
-      </div>
-      <div className="col-2 weekly-weather-data">
-        Sunday
-        <div className="col">29°|20°</div>
-        <div className="col">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png"
-            alt="cloudy"
-            className="weekly-weather-icon"
-          />
+          <WeatherIcon code="01d" size={36} />
         </div>
       </div>
     </div>

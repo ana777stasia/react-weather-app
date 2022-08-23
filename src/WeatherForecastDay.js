@@ -19,7 +19,6 @@ export default function WeatherForecastDay(props) {
 
   return (
     <div>
-      <div className="col-2 weekly-weather-data">
         {day()}
         <div className="col">
           {Math.round(props.data.temp.max)}°|
@@ -27,7 +26,6 @@ export default function WeatherForecastDay(props) {
         </div>
         <div className="col">
           <WeatherIcon code={props.data.weather[0].icon} size={36} />
-        </div>
       </div>
     </div>
   );

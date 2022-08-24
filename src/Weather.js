@@ -22,10 +22,6 @@ export default function Weather(props) {
     });
   }
 
-  useEffect(() => {
-    search();
-  }, []);
-
   function handleSubmit(event) {
     search();
     event.preventDefault();
@@ -40,6 +36,11 @@ export default function Weather(props) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(displayWeather);
   }, [city]);
+
+  useEffect(() => {
+    search();
+    // eslint-disable-next-line
+  }, []);
 
   if (weatherData.ready) {
     return (

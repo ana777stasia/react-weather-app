@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
@@ -22,19 +22,25 @@ export default function Weather(props) {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  useEffect(() => {
     search();
+  }, []);
+
+  function handleSubmit(event) {
+    search();
+    event.preventDefault();
   }
   function changeCity(event) {
     setCity(event.target.value);
   }
-  function search() {
+
+  const search = useCallback(() => {
     const apiKey = "e18f610bb5a857482b560fc01e23f479";
     const units = "metric";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(displayWeather);
-  }
+  }, [city]);
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -63,7 +69,6 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    search();
     return "Loading...";
   }
 }

@@ -4,9 +4,8 @@
   font-size: 36px;
   font-weight: bold;
 }
-.celsius {
+.celsius a {
   text-decoration: none;
-  color: #212529;
   font-size: 28px;
 }
 .sky-data {

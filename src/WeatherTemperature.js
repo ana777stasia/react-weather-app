@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { WeatherContext } from "./WeatherContext";
+import { convertToFahrenheit } from "./utils";
 
 export default function WeatherTemperature(props) {
-  const [unit, setUnit] = useState("celsius");
-
-  function convertToFahrenheit() {
-    return (props.celsius * 9) / 5 + 32;
-  }
+  const [unit, setUnit] = React.useContext(WeatherContext);
 
   function showFahrenheit(event) {
     event.preventDefault();
@@ -31,7 +29,7 @@ export default function WeatherTemperature(props) {
   } else {
     return (
       <div className="col-4 current-temperature">
-        {Math.round(convertToFahrenheit())}
+        {Math.round(convertToFahrenheit(props.celsius))}
         <span className="celsius">
           <a href="/" onClick={showCelsius}>
             °C
